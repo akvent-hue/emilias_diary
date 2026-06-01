@@ -362,6 +362,8 @@ body{
     overflow:hidden;
 
     transition:.3s;
+
+    text-align:center;
 }
 
 .day{
