@@ -96,8 +96,8 @@ body{
 /* ---------------- */
 
 .hero{
-
     position:relative;
+    overflow:hidden;
 }
 
 .hero img{
@@ -110,12 +110,14 @@ body{
 .slider{
     position:relative;
     width:100%;
-    height:100vh;
+    height:min(100vh,900px);
     overflow:hidden;
 }
 
 .slide{
 
+    object-fit:cover;
+    object-position:center top;
     position:absolute;
 
     width:100%;
@@ -179,22 +181,14 @@ body{
 }
 
 .main{
-
     position:absolute;
-
     top:50%;
     left:50%;
-
     transform:translate(-50%, -50%);
-
     text-align:center;
-
     font-size:120px;
-
     color:white;
-
     z-index:2;
-
     text-shadow:
         2px 2px 10px rgba(0,0,0,.25);
 }
@@ -204,26 +198,17 @@ body{
 /* ---------------- */
 
 .month-section{
-
     max-width:1600px;
-
     margin:auto;
-
     padding:50px 20px -1px;
-
     font-family:'Montserrat', sans-serif;
 }
 
 .month-section h2{
-
     text-align:center;
-
     font-size:120px;
-
     color:var(--sage);
-
     margin-bottom:30px;
-
     font-family:"Musinka";
 }
 
@@ -232,32 +217,20 @@ body{
 /* ---------------- */
 
 .calendar{
-
     display:grid;
-
     grid-template-columns:repeat(7,1fr);
-
     border-top:1px solid var(--line);
-
     border-left:1px solid var(--line);
 }
 
 .weekday{
-
     text-align:center;
-
     padding:15px;
-
     border-right:1px solid var(--line);
-
     border-bottom:1px solid var(--line);
-
     color:var(--sage);
-
     font-size:18px;
-
     font-weight:600;
-
     font-family:'Montserrat', sans-serif;
 }
 
@@ -268,19 +241,12 @@ body{
 .day{
 
     min-height:380px;
-
     border-right:1px solid var(--line);
-
     border-bottom:1px solid var(--line);
-
     padding:10px;
-
     position:relative;
-
     background:white;
-
     transition:.3s;
-
     font-family:'Montserrat', sans-serif;
 }
 
@@ -315,35 +281,25 @@ body{
 .header-space{
 
     height:40px;
-
     width:100%;
 }
 
 .name{
 
     text-align:center;
-
     color:var(--sage);
-
     font-size:12px;
-
     font-weight:600;
-
     line-height:1.2;
 }
 
 .date{
 
     position:absolute;
-
     top:10px;
-
     left:12px;
-
     color:var(--sage);
-
     font-size:18px;
-
     font-weight:600;
 }
 
@@ -354,27 +310,16 @@ body{
 .name{
 
     margin-top:12px;
-
     height:30px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     text-align:center;
-
     color:var(--sage);
-
     font-size:11px;
-
     letter-spacing:0.2px;
-
     font-weight:600;
-
     line-height:1.2;
-
     padding:0 5px;
 }
 
@@ -383,17 +328,11 @@ body{
 /* ---------------- */
 
 .day img{
-
     width:160px;
-
     height:210px;
-
     object-fit:cover;
-
     border-radius:5px;
-
     display:block;
-
     margin:5px auto 0;
 }
 
@@ -402,15 +341,10 @@ body{
 /* ---------------- */
 
 .rating{
-
     margin-top:10px;
-
     text-align:center;
-
     color:var(--sage);
-
     font-size:14px;
-
     font-weight:500;
 }
 
@@ -419,21 +353,13 @@ body{
 /* ---------------- */
 
 .day p{
-
     margin-top:10px;
-
     font-size:13px;
-
     line-height:1.45;
-
     color:#555;
-
     max-height:95px;
-
     overflow:hidden;
-
     transition:.3s;
-
     text-align:center;
 }
 
@@ -443,64 +369,40 @@ body{
 }
 
 .day:hover p{
-
     position:absolute;
-
     left:10px;
     right:10px;
-
     bottom:10px;
-
     max-height:none;
-
     overflow:visible;
-
     background:white;
-
     padding:12px;
-
     border-radius:10px;
-
     box-shadow:0 5px 20px rgba(0,0,0,.15);
-
     z-index:20;
 }
 
 .preview{
     font-size:13px;
-
     display:-webkit-box;
     -webkit-line-clamp:4;
     -webkit-box-orient:vertical;
-
     overflow:hidden;
 }
 
 .tooltip{
-
     display:none;
-
     position:absolute;
-
     top:50%;
-
     left:50%;
-
     transform:translate(-50%, -50%);
-
     width:260px;
-
     background:white;
-
     padding:15px;
-
     border-radius:12px;
-
     box-shadow:0 10px 30px rgba(0,0,0,.15);
-
     z-index:50;
 }
-
 .day:hover .tooltip{
     display:block;
 }
@@ -508,22 +410,18 @@ body{
 /* ---------------- */
 /* COLORS */
 /* ---------------- */
-
 .book{
 
     background:white
 }
-
 .movie{
 
     background:white;
 }
-
 .series{
 
     background:white;
 }
-
 .empty{
 
     background:white;
@@ -533,108 +431,82 @@ body{
 /* MOBILE */
 /* ---------------- */
 
-@media(max-width:1200px){
+@media (max-width: 768px){
 
-    .calendar{
+    /* ---------- HERO ---------- */
 
-        grid-template-columns:repeat(4,1fr);
+    .slider{
+        height:55vh;
+        min-height:380px;
     }
 
-}
-
-@media(max-width:900px){
+    .slide{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+    }
 
     .main{
-
-        font-size:60px;
+        width:90%;
+        font-size:48px;
+        line-height:1.1;
     }
 
-    .month-section h2{
-
-        font-size:60px;
+    .arrow{
+        width:46px;
+        height:46px;
+        font-size:24px;
     }
 
-    .calendar{
-
-        grid-template-columns:repeat(2,1fr);
+    .left{
+        left:15px;
     }
 
-    .weekday{
+    .right{
+        right:15px;
+    }
 
-        display:none;
+    /* ---------- NAV ---------- */
+
+    .navbar{
+        width:100%;
+        top:15px;
+    }
+
+    .navbar nav{
+        gap:16px;
     }
 
     .navbar a{
+        font-size:26px;
+    }
 
-        font-size:22px;
+    /* ---------- MONTH ---------- */
+
+    .month-section{
+        padding:35px 10px;
+        overflow-x:auto;
+    }
+
+    .month-section h2{
+        font-size:62px;
+        margin-bottom:20px;
+    }
+
+    /* ---------- CALENDAR ---------- */
+
+    .calendar{
+        min-width:1200px;
     }
 
     .day{
-
-        min-height:340px;
+        min-height:360px;
     }
 
     .day img{
-
-        width:130px;
-        height:180px;
+        width:140px;
+        height:185px;
     }
-
-    /* ---------------- */
-/* MOBILE HERO */
-/* ---------------- */
-
-@media (max-width: 768px) {
-
-    .hero {
-        height: 65vh;
-        min-height: 420px;
-    }
-
-    .slider {
-        height: 100%;
-    }
-
-    .slide {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-    }
-
-    .main {
-        font-size: 52px;
-        width: 90%;
-        line-height: 1.1;
-    }
-
-    .arrow {
-        width: 42px;
-        height: 42px;
-        font-size: 24px;
-    }
-
-    .left {
-        left: 12px;
-    }
-
-    .right {
-        right: 12px;
-    }
-
-    .navbar {
-        top: 15px;
-        width: 100%;
-    }
-
-    .navbar nav {
-        gap: 16px;
-    }
-
-    .navbar a {
-        font-size: 24px;
-    }
-
-}
 
 }
