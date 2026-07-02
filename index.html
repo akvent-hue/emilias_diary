@@ -20,24 +20,51 @@
 
 <body>
 
-<header class="navbar">
+<script>
+const slides=document.querySelectorAll(".slide");
+const next=document.querySelector(".right");
+const prev=document.querySelector(".left");
+let current=0;
 
+function showSlide(index){
+    slides.forEach(slide=>slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide(){
+    current++;
+    if(current>=slides.length) current=0;
+    showSlide(current);
+}
+
+function prevSlide(){
+    current--;
+    if(current<0) current=slides.length-1;
+    showSlide(current);
+}
+
+next.onclick=nextSlide;
+prev.onclick=prevSlide;
+setInterval(nextSlide,6000);
+</script>
+
+<header class="navbar">
     <nav>
         <a class="active" href="#may">May</a>
         <a href="#">June</a>
         <a href="#">July</a>
         <a href="#">August</a>
     </nav>
-
 </header>
 
 <section class="hero">
+    <div class="slider">
+        <img src="images/cover.jpg" class="slide active" alt="Cover 1">
+        <img src="images/cover2.jpg" class="slide" alt="Cover 2">
 
-    <img
-        src="./images/cover.jpg"
-        alt="Emilia's Diary"
-    >
-
+        <button class="arrow left">&#10094;</button>
+        <button class="arrow right">&#10095;</button>
+    </div>
     <div class="main">Emilia's diary</div>
 
 </section>
