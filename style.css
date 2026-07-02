@@ -482,31 +482,5 @@ body{
         font-size:26px;
     }
 
-    /* ---------- MONTH ---------- */
-
-    .month-section{
-        padding:35px 10px;
-        overflow-x:auto;
-    }
-
-    .month-section h2{
-        font-size:62px;
-        margin-bottom:20px;
-    }
-
-    /* ---------- CALENDAR ---------- */
-
-    .calendar{
-        min-width:1200px;
-    }
-
-    .day{
-        min-height:360px;
-    }
-
-    .day img{
-        width:140px;
-        height:185px;
-    }
 
 }
